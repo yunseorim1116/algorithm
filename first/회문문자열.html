@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const word = "zaaabbaaaz";
+
+      function solution(word) {
+        word = Array.from(word.toUpperCase()); //배열
+        let answer = "";
+
+        const newArr = [...word].reverse(); //배열
+
+        if (word.toString() == newArr.toString()) {
+          answer = "yes!";
+        } else {
+          answer = "nono";
+        }
+
+        return answer;
+      }
+
+      console.log(solution(word));
+    </script>
+  </body>
+</html>

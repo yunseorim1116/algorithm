@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const n = "8";
+      const arr = [130, 135, 148, 145, 150, 150, 153];
+
+      function solution(arr, n) {
+        let answer = 1;
+
+        for (let i = 1; i < n; i++) {
+          if (arr[i] > arr[i - 1]) answer++;
+        }
+
+        return answer;
+      }
+
+      console.log(solution(arr, n));
+    </script>
+  </body>
+</html>

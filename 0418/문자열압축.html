@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const word = "KKHSSSSSSSE";
+
+      function solution(word) {
+        let count = 1;
+        let answer = [];
+
+        word = word.split("");
+
+        for (let i = 0; i < word.length; i++) {
+          if (word[i] == word[i + 1]) {
+            count++;
+          } else if (word[i] !== word[i + 1]) {
+            answer.push(word[i]);
+            if (count == 1) {
+              count = 1;
+            } else {
+              answer.push(count);
+              count = 1;
+            }
+          }
+        }
+
+        return answer.join("");
+      }
+
+      console.log(solution(word));
+    </script>
+  </body>
+</html>

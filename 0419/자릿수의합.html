@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      // 1.배열 하나하나 요소를 꺼내고 그안에서 또 하나하나 더한다 (이중)
+      // 2.
+
+      let answer = "";
+
+      const arr = [128, 460, 603, 40, 521, 137, 123];
+      const n = 7;
+      const minNumber = 0;
+      const newArr = [];
+
+      function solution(arr, n) {
+        arr.forEach((ele, idx) => {
+          let sum = 0;
+
+          for (let i = 0; i < ele.length; i++) {
+            sum = ele[i] + ele[i + 1]; //세자리나 두자리 수 합이 나오고
+            if (sum > minNumber) {
+              minNumber = sum; //젤 큰 값 비교
+              newArr.push(ele);
+            }
+          }
+        });
+
+        return answer;
+      }
+
+      console.log(solution(arr, n));
+    </script>
+  </body>
+</html>

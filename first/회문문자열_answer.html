@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const word = "zaaabbaaaz";
+
+      function solution(word) {
+        let answer = "yes";
+        console.log(typeof(word.split("").reverse().join("")));
+
+        if (word.split("").reverse().join("") !== word) return (answer = "No");
+        return answer;
+      }
+
+      console.log(solution(word));
+    </script>
+  </body>
+</html>

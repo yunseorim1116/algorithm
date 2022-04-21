@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<body>
+    알고리즘 연습 - 대문자찾기
+    <script>
+
+const string = 'KoreaTimeGood';
+
+
+    
+function solution(string){
+
+   const newString = string.toLowerCase(); //3개가 다를거임
+   let answer = 0;
+   
+  for(let i=0; i<string.length; i++){
+
+    if(string[i] !== newString[i]) answer++;
+
+  }
+
+  return answer;
+    
+    
+}
+
+console.log(solution(string));
+    </script>
+</body>
+</html>

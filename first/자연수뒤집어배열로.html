@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const n = 12345;
+
+      function solution(n) {
+        let newNumber = n.toString(); //숫자인 n을 문자열로 변환
+        const arr = Array.from(newNumber);
+        const newArr = [];
+
+        //인덱스 01234를 43210으로 바꿔야함 ?
+
+        for (let i = 1; i < arr.length + 1; i++) {
+          newArr.push(Number(arr[arr.length - i]));
+        }
+
+        return newArr;
+      }
+
+      console.log(solution(n));
+    </script>
+  </body>
+</html>

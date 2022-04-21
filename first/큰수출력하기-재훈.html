@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const arr = new Array(10)
+        .fill(0)
+        .map((i) => Math.floor(Math.random() * 10));
+      const n = 10;
+      let result = arr[0];
+      console.log(arr);
+
+      function solution(arr, n) {
+        for (let i = 1; i < n; i++) {
+          if (arr[i] > arr[i - 1]) result += ` ${arr[i]}`;
+        }
+        return result;
+      }
+
+      console.log(solution(arr, n));
+    </script>
+  </body>
+</html>

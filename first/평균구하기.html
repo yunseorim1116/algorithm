@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3, 4];
+      function solution(arr) {
+        let answer = 0;
+        let sum = 0;
+        for (let x of arr) {
+          sum += x / arr.length;
+          answer = sum;
+        }
+        return answer;
+      }
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

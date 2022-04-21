@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const word = "g0en2T0s8eSoft";
+
+      function solution(word) {
+        let answer = "";
+
+        for (let i = 0; i < word.length; i++) {
+          if (!isNaN(word[i])) {
+            answer += word[i];
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(word));
+    </script>
+  </body>
+</html>

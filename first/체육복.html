@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const n = 5;
+      const lost = [2, 4]; //잃어버린애들
+      const reserve = [1, 3, 5]; //여분있는애들
+
+      function solution(n, lost, reserve) {
+        let answer;
+
+        const newArr = [...lost, ...reserve];
+        // const testArr = [...lost, ...reserve];
+
+        newArr.sort(function (a, b) {
+          return a - b;
+        });
+
+        answer = n - lost.length;
+
+        newArr.forEach((ele, idx) => {
+          if (ele == reserve[0]) {
+            // console.log("idx: " + idx + ", ele: " + ele);
+            // console.log("reserve[0] : " + reserve[0]);
+
+            if (reserve[0] + 1 == lost[0] || reserve[0] - 1 == lost[0]) {
+
+                
+
+            //   console.log("lost[0] : " + lost[0]);
+              answer++;
+
+              reserve.splice(reserve.indexOf(reserve[0]), 1);
+              lost.splice(lost.indexOf(lost[0]), 1);
+            }
+          }
+        });
+
+        return answer;
+      }
+
+      console.log(solution(n, lost, reserve));
+    </script>
+  </body>
+</html>

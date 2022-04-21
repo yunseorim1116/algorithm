@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      var incleaseBtn = document.getElementById("inclease");
+      var count = document.getElementById("count");
+
+      var increase = (function () {
+        // 카운트 상태를 유지하기 위한 자유 변수
+        var counter = 0;
+        // 클로저를 반환
+        return function () {
+          return ++counter;
+        };
+      })();
+
+      incleaseBtn.onclick = function () {
+        count.innerHTML = increase();
+      };
+    </script>
+  </body>
+</html>

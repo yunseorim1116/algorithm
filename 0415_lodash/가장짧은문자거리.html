@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const s = "teachermode";
+      const t = "e";
+
+      function solution(s, t) {
+        let answer = [];
+        let p = 1000;
+
+        for (let x of s) {
+          if (x === t) {
+            p = 0;
+            answer.push(p);
+          } else {
+            p++;
+            answer.push(p);
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(s, t));
+    </script>
+  </body>
+</html>
