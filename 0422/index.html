@@ -14,23 +14,18 @@
       function solution(lottos, win_nums) {
         let count = 0;
         let min = 0;
-        let lose = false;
 
         const answer = [];
 
         lottos.forEach((ele) => {
           if (win_nums.includes(ele)) {
-            //로또번호 포함되어잇으면 올려줘 & o다틀림
+            //로또번호 포함되어잇으면 올려줘 & 0다틀림
             count++;
             min++;
           } else if (ele == 0) {
             //0까지 다 맞음
-
             count++;
-          } else if (win_nums.indexOf(ele) == -1 && !win_nums.includes(0)) {
-            console.log("afds");
-            lose = true;
-          }
+          } 
         });
 
         console.log(count);
