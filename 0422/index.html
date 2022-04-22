@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const lottos = [44, 18, 25, 28, 50, 39];
+      const win_nums = [31, 10, 45, 1, 6, 19];
+
+      function solution(lottos, win_nums) {
+        let count = 0;
+        let max = 0;
+        let lose = false;
+
+        const answer = [];
+
+        lottos.forEach((ele) => {
+          if (win_nums.includes(ele)) {
+            //로또번호 포함되어잇으면 올려줘 & o다틀림
+            count++;
+            max++;
+          } else if (ele == 0) {
+            //0까지 다 맞음
+
+            count++;
+          } else if (win_nums.indexOf(ele) == -1 && !win_nums.includes(0)) {
+            console.log("afds");
+            lose = true;
+          }
+        });
+
+        console.log(count);
+        console.log(max);
+
+        const lottosLength = lottos.length;
+
+        count == 0 ? answer.push(6) : answer.push(lottosLength - count + 1);
+        // count == 6 ? answer.push(1) : answer.push(lottosLength - count + 1);
+        max == 0
+          ? answer.push(lottosLength)
+          : answer.push(lottosLength - max + 1);
+
+        return answer;
+      }
+      console.log(solution(lottos, win_nums));
+    </script>
+  </body>
+</html>
