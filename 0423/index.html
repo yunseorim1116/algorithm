@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const price = 3;
+      const money = 20;
+      const count = 4;
+      function solution(price, money, count) {
+        let multiply = 1; //이거만큼 곱해줌
+        let sum = 0;
+
+        while (multiply < count + 1) {
+          sum += price * multiply;
+          multiply++;
+        }
+
+        sum - money <= 0 ? 0 : (answer = sum - money);
+      }
+      console.log(solution(price, money, count));
+    </script>
+  </body>
+</html>

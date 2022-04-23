@@ -18,11 +18,11 @@
         const answer = [];
 
         lottos.forEach((ele) => {
-          if (win_nums.includes(ele)) {
+          if (win_nums.includes(ele)) {//최소범위
             //로또번호 포함되어잇으면 올려줘 & 0다틀림
             count++;
             min++;
-          } else if (ele == 0) {
+          } else if (ele == 0) {//최대범위
             //0까지 다 맞음
             count++;
           } 
