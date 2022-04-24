@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      //   if (a % 2 == 0 && a !== 8) {
+      //   } else if (a % 2 == 1 || a == 8) {
+      //     //홀수인달 && 예외 달인 8월까지
+      //
+      const week = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"];
+      const a = 5;
+      const b = 24; //23 //4
+      const mon = 31;
+
+      function solution(a, b, week) {
+        let count = 1;
+        let day = 0;
+        let answer = "";
+        let idx;
+
+        while (count < mon) {
+          if (count % 2 == 1 || count == 8) {
+            if (week.length > b && a == 1) {
+              console.log(week[b - 1]);
+              return (answer = week[b - 1]);
+            } else {
+              if (count == 1) {
+                idx = b % week.length;
+                answer = week[idx - 1];
+                day = b + 31;
+              } else {
+                idx = day % week.length;
+                answer = week[idx - 1];
+                console.log(day);
+                day += 31;
+              }
+            }
+          } else if (count % 2 == 0 && count !== 8) {
+            if (count == 2) {
+              idx = b % week.length;
+              answer = week[idx - 1];
+              day += 29;
+            } else {
+              idx = day % week.length;
+              answer = week[(idx = 1)];
+              day += 30;
+            }
+          }
+
+          if (a == count) {
+            break;
+          }
+          count++;
+        } //while끝
+
+        return answer;
+      }
+      console.log(solution(a, b, week));
+    </script>
+  </body>
+</html>
