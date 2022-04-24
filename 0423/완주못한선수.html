@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const participant = ["mislav", "stanko", "mislav", "ana"];
+      const completion = ["stanko", "ana", "mislav"];
+
+      function solution(participant, completion) {
+        participant.sort();
+        completion.sort();
+
+        for (let i = 0; participant.length; i++) {
+          if (participant[i] !== completion[i]) {
+            return (answer = participant[i]);
+            break;
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(participant, completion));
+    </script>
+  </body>
+</html>
