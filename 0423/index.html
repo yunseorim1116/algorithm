@@ -20,7 +20,7 @@
           multiply++;
         }
 
-        sum - money <= 0 ? 0 : (answer = sum - money);
+        return sum - money <= 0 ? (answer = 0) : (answer = sum - money);
       }
       console.log(solution(price, money, count));
     </script>
