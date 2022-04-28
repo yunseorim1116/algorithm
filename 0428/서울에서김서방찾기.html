@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const seoul = ["Jane", "Kim"]; //부족한배열
+
+      function solution(seoul) {
+        let answer = "테슷트";
+
+        seoul.forEach((ele, idx) => {
+          if (ele == "Kim") {
+            answer = `김서방은 ${idx}에 있다`;
+          }
+          idx++;
+        });
+
+        return answer;
+      }
+
+      console.log(solution(seoul));
+    </script>
+  </body>
+</html>

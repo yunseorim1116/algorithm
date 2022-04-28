@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const n = 1;
+      function solution(n) {
+        let word = "수박";
+        let answer = "";
+        let count = word.length;
+
+        while (count < n) {
+          if (count % 2 == 1) {
+            word += "박";
+          } else {
+            word += "수";
+          }
+          count++;
+        }
+
+        if (n == 1) return "수";
+        else return (answer = word);
+      }
+
+      console.log(solution(n));
+    </script>
+  </body>
+</html>
