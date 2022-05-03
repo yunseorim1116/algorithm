@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const answers = [1, 2, 3, 4, 5];
+      let min = 1000;
+      let count = 0;
+      function solution(answers) {
+        const answer = [];
+        const first = [1, 2, 3, 4, 5];
+        const second = [2, 1, 2, 3, 2, 4, 2, 5];
+        const third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+        const grade = [0, 0, 0];
+        const firstLength = first.length;
+        const secondLength = second.length;
+        const thirdLength = third.length;
+
+        // console.log(1 % second.length);
+
+        answers.forEach((ele, idx) => {
+          if (ele == first[idx % second.length]) grade[0] += 1;
+          if (ele == second[idx % second.length]) grade[1] += 1;
+          if (ele == third[idx % second.length]) grade[2] += 1;
+
+          idx++;
+        });
+
+        console.log(grade);
+        const maxScore = Math.max(...grade);
+        console.log(maxScore);
+        
+        for (let i = 0; i < 3; i++) {
+          if (grade[i] === maxScore) answer.push(i + 1);
+        }
+
+        return answer;
+      }
+      console.log(solution(answers));
+    </script>
+  </body>
+</html>
