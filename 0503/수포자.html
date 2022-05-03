@@ -17,7 +17,7 @@
         const first = [1, 2, 3, 4, 5];
         const second = [2, 1, 2, 3, 2, 4, 2, 5];
         const third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-        const grade = [0, 0, 0];
+        const grade = [0, 0, 0]; //학생 세명의 점수 측정할 배열 생성
         const firstLength = first.length;
         const secondLength = second.length;
         const thirdLength = third.length;
@@ -31,14 +31,15 @@
 
           idx++;
         });
+        //배열 계속해서 늘릴필요 없음, 나머지로 인덱스 0부터 다시 시작 가능
 
-        console.log(grade);
+  
         const maxScore = Math.max(...grade);
-        console.log(maxScore);
-        
+   
+
         for (let i = 0; i < 3; i++) {
           if (grade[i] === maxScore) answer.push(i + 1);
-        }
+        } //1등 푸쉬 !
 
         return answer;
       }
