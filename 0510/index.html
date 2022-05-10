@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <div>
+      문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수,
+      solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고
+      "1234"라면 True를 리턴하면 됩니다.
+    </div>
+    <script>
+      const s = "a234";
+
+      function solution(s) {
+        let answer;
+        let count = 0;
+        let newWord = "";
+        for (let x of s) {
+          if (isNaN(x)) {
+            return false;
+          } else {
+            count++;
+          }
+        }
+
+        count == 4 || count == 6 ? (answer = true) : (answer = false);
+      }
+
+      console.log(solution(s));
+    </script>
+  </body>
+</html>
