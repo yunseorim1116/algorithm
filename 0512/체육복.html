@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const n = 5;
+      const lost = [2, 4];
+      const reserve = [1, 3, 5];
+      function solution(n, lost, reserve) {
+        reserve.sort((a, b) => a - b);
+        lost.sort((a, b) => a - b);
+
+        let answer = 0;
+        answer = n - lost.length; //체육복 입을수 잇는 사람들
+
+        // console.log(lost);
+        // console.log(reserve);
+        for (let i = 0; i < reserve.length; i++) {
+          if (lost.includes(reserve[i])) {
+            lost.splice(lost.indexOf(reserve[i]), 1);
+            reserve.splice(i, 1);
+            answer++;
+            i--;
+          }
+        }
+
+        for (let i = 0; i < lost.length; i++) {
+          if (reserve.includes(lost[i] - 1)) {
+            answer++;
+            reserve.splice(reserve.indexOf(lost[i] - 1), 1);
+            lost.splice(i, 1);
+            i--;
+          } else if (reserve.includes(lost[i] + 1)) {
+            answer++;
+            reserve.splice(reserve.indexOf(lost[i] + 1), 1);
+            lost.splice(i, 1);
+            i--;
+          }
+        }
+
+   
+        return answer;
+      }
+
+      console.log(solution(n, lost, reserve));
+    </script>
+  </body>
+</html>
