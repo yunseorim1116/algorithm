@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const array = [1, 5, 2, 6, 3, 7, 4];
+      const commands = [
+        [2, 5, 3], //2부터 5까지 짜르기 //5263
+        [4, 4, 1],
+        [1, 7, 3],
+      ];
+      function solution(array, commands) {
+        const spliceArr = [];
+        const answer = [];
+
+        commands.forEach((arr) => {
+          let testArr = []; //인덱스끼리 짜를려고 배열 하나 재생성
+
+          arr.forEach((num, idx) => {
+            testArr.push(num);
+          });
+          const spliceArr = array.slice(testArr[0] - 1, testArr[1]);
+          spliceArr.sort((a, b) => a - b);
+          answer.push(spliceArr[testArr[2] - 1]);
+        });
+
+        return answer;
+      }
+
+      console.log(solution(array, commands));
+    </script>
+  </body>
+</html>
