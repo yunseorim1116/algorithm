@@ -15,21 +15,24 @@
         "frodo neo",
         "muzi neo",
         "apeach muzi",
+        "muzi frodo",
+        "a a",
       ]; //각 이용ㅈ가 신고한 이용자의 id정보가 담긴 문자열 배열
       const k = 2; //정지 기준이 되는 매개변수
       const id_list = ["muzi", "frodo", "apeach", "neo"]; //이용자 id
 
       function solution(id_list, report, k) {
         const newIdList = Array.from({ length: id_list.length }, () => 0);
-
         for (let i = 0; i < report.length; i++) {
-          //중복신고당한애들 없애주기
-          if (report[i] == report[i + 1]) {
-            console.log(i);
-            report.splice(i, 1);
-            i--;
+          for (let j = i + 1; j < report.length; j++) {
+            if (report[i] == report[j]) {
+              console.log(i);
+              report.splice(j, 1);
+              j--;
+            }
           }
         }
+
         const id_report_list_num = Array.from(
           { length: id_list.length },
           () => 0
@@ -47,7 +50,7 @@
 
           newIdList[reportedUserIdx]++;
 
-          if (newIdList[reportedUserIdx] >= 2) {
+          if (newIdList[reportedUserIdx] >= k) {
             //id_list인덱스번호랑 신고유저 번호랑 똑같아
             newIdList[reportedUserIdx] = "신고유저";
           }
@@ -65,14 +68,16 @@
           //   console.log("신고당한애" + user[1]);
           //신고한애한테 메일을 보내야 한다 //신고한 유저가 신고된 유저인지 본다
           const reportedUserIdx = id_list.indexOf(reportedUser);
-
-          if (newIdList[reportedUserIdx] == "신고유저") {
+          if (reportUser == reportedUser) {
+            report.splice(i, 1);
+            i--;
+          } else if (newIdList[reportedUserIdx] == "신고유저") {
             id_report_list_num[reportUserIdx]++;
             // console.log("이프문안 들어왓다" + newIdList[reportedUserIdx]);
           }
         } //총 신고받은 횟수 구하기
 
-        console.log(id_report_list_num);
+
         answer = id_report_list_num;
         return answer;
       }
