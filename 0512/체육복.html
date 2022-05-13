@@ -28,7 +28,8 @@
             answer++;
             i--;
           }
-        }
+        } //보유자/잃어버린자 중복제거 하는 과정에서 체육복  입을수 있는 사람들 수  ++
+        //돌리고 있는 배열 하나 삭제되니까 i--도 해준다
 
         for (let i = 0; i < lost.length; i++) {
           if (reserve.includes(lost[i] - 1)) {

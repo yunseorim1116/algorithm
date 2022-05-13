@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const report = [
+        "muzi frodo",
+        "apeach frodo",
+        "frodo neo",
+        "muzi neo",
+        "apeach muzi",
+      ]; //각 이용ㅈ가 신고한 이용자의 id정보가 담긴 문자열 배열
+      const k = 2; //정지 기준이 되는 매개변수
+      const id_list = ["muzi", "frodo", "apeach", "neo"]; //이용자 id
+
+      function solution(id_list, report, k) {
+        const newIdList = Array.from({ length: id_list.length }, () => 0);
+
+        for (let i = 0; i < report.length; i++) {
+          //중복신고당한애들 없애주기
+          if (report[i] == report[i + 1]) {
+            console.log(i);
+            report.splice(i, 1);
+            i--;
+          }
+        }
+        const id_report_list_num = Array.from(
+          { length: id_list.length },
+          () => 0
+        );
+        //연산시작
+        let answer = [];
+
+        const userReport = [0, 0];
+        for (let i = 0; i < report.length; i++) {
+          const user = report[i].split(" ");
+
+          const reportUser = user[0]; //신고한 유저 알아냈음
+          const reportedUser = user[1];
+          const reportedUserIdx = id_list.indexOf(reportedUser); //얘로아이디 리스트의 인덱스번호 알아냄
+
+          newIdList[reportedUserIdx]++;
+
+          if (newIdList[reportedUserIdx] >= 2) {
+            //id_list인덱스번호랑 신고유저 번호랑 똑같아
+            newIdList[reportedUserIdx] = "신고유저";
+          }
+        } //신고유저 구하기
+
+        console.log(newIdList);
+
+        for (let i = 0; i < report.length; i++) {
+          const user = report[i].split(" ");
+
+          const reportUser = user[0]; //신고한 유저 알아냈음
+          const reportedUser = user[1]; //신고된 유저 메일 갈건지 말건지
+          const reportUserIdx = id_list.indexOf(reportUser); //얘로아이디 리스트의 인덱스번호 알아냄
+
+          //   console.log("신고당한애" + user[1]);
+          //신고한애한테 메일을 보내야 한다 //신고한 유저가 신고된 유저인지 본다
+          const reportedUserIdx = id_list.indexOf(reportedUser);
+
+          if (newIdList[reportedUserIdx] == "신고유저") {
+            id_report_list_num[reportUserIdx]++;
+            // console.log("이프문안 들어왓다" + newIdList[reportedUserIdx]);
+          }
+        } //총 신고받은 횟수 구하기
+
+        console.log(id_report_list_num);
+        answer = id_report_list_num;
+        return answer;
+      }
+
+      console.log(solution(id_list, report, k));
+    </script>
+  </body>
+</html>
