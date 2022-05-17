@@ -9,13 +9,12 @@
   </head>
   <body>
     <script>
-      const numbers = [5, 0, 2, 7];
+      const numbers = [5,1];
       //[0, 2, 5, 7]
       //01 02 03
       //12 13
       //23
       function solution(numbers) {
-        numbers.sort((a, b) => a - b);
         let answer = [];
         for (let i = 0; i < numbers.length; i++) {
           for (let j = i + 1; j < numbers.length; j++) {
@@ -28,7 +27,7 @@
         }
         const set = new Set(answer);
         const uniqueArr = [...set];
-        return (answer = uniqueArr);
+        return (answer = uniqueArr).sort((a, b) => a - b);
       }
 
       console.log(solution(numbers));
