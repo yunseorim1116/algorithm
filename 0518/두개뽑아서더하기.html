@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const numbers = [5, 0, 2, 7];
+      //[0, 2, 5, 7]
+      //01 02 03
+      //12 13
+      //23
+      function solution(numbers) {
+        numbers.sort((a, b) => a - b);
+        let answer = [];
+        for (let i = 0; i < numbers.length; i++) {
+          for (let j = i + 1; j < numbers.length; j++) {
+            if (j > numbers.length) {
+              answer = answer;
+            } else {
+              answer.push(numbers[i] + numbers[j]);
+            }
+          }
+        }
+        const set = new Set(answer);
+        const uniqueArr = [...set];
+        return (answer = uniqueArr);
+      }
+
+      console.log(solution(numbers));
+    </script>
+  </body>
+</html>
