@@ -36,8 +36,8 @@
       function solution(board, move) {
         const boxLength = board[0].length; //몰라 일단..
      //인형 자리 .. 계속 없애줄거임.
-        const answer = [];
         const kakaoDollBox = [];
+        const tempArr = []
     
         
 
@@ -69,6 +69,7 @@
 
                   // console.log(i)
                   kakaoDollBox.push(board[i][j])
+             
                 //  console.log(kakaoDollBox)
                  moveIdx.splice(0,1)
                  board[i][j] = 0;
@@ -84,6 +85,13 @@
                 // console.log("j" + j);
                 // console.log(board[i][j] )
                 kakaoDollBox.push(board[i][j])
+                if(tempArr[tempArr.length - 1] == board[i][j]){
+                  tempArr.splice(tempArr.length - 1,1)
+
+                }else{
+
+                  tempArr.push(board[i][j])
+                }
                 // console.log(kakaoDollBox)
                 moveIdx.splice(0,1)
                 board[i][j] = 0;
@@ -106,21 +114,13 @@
         }
 
 
+    console.log(kakaoDollBox)
+    console.log(tempArr)
     newArr = kakaoDollBox.filter((el)=> el != 0)
-    const newArrLength = newArr.length;
-    console.log(newArr)
-        for (let i =0; i<newArr.length ; i++){
-          if ( newArr[i] == newArr[i+1]) {
-            newArr.splice(i,1)
-            newArr.splice(i,1)
-            i=0;
-          }
-          if (newArr.length == 0){
-            break;
-          }
-        }
-        
-        return newArrLength - newArr.length;
+
+  return newArr.length - tempArr.length;
+ 
+       
 
 
       }
