@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <br>
+
+    [0, 0, 0, 0, 0] </br>
+    [0, 0, 1, 0, 3],</br>
+    [0, 2, 5, 0, 1],</br>
+    [4, 2, 4, 4, 2],</br>
+    [3, 5, 1, 3, 1],</br>
+  ];
+
+
+    <script>
+      const board = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 3],
+        [0, 2, 5, 0, 1],
+        [4, 2, 4, 4, 2],
+        [3, 5, 1, 3, 1],
+      ];
+
+      // console.log("i" + i);
+      //         console.log("j" + j);
+      //인형담긴거 검사할때도 0이면 지우고..
+      //0이면 지우고 ..
+      // 4 3 1 1 3 2 0 4 : 배열에 담겨야 하는 것
+      // 0 4 2 4 0 1 0 3 : 인덱스
+      const move = [1, 5, 3, 5, 1, 2, 1, 4];
+      function solution(board, move) {
+        const boxLength = board[0].length; //몰라 일단..
+     //인형 자리 .. 계속 없애줄거임.
+        const answer = [];
+        const kakaoDollBox = [];
+    
+        
+
+
+        const moveIdx = move.map((el)=>(el-1));
+
+
+
+        for (let i = 0; i < boxLength; i++) {
+          console.log(board[i]);//인형뽑기 윗줄부터 하나하나
+          const kakaoDoll = moveIdx[0];
+  
+          for (let j = 0; j < boxLength; j++) {
+            // console.log(board[i][j])
+            if(board[i][j] == board[i][kakaoDoll]){
+              console.log(board[i][j])
+              console.log(moveIdx[0])
+       
+              console.log('kakaoDoll: '+kakaoDoll +': 얘가j여야해')
+              console.log("i" + i);
+              console.log("j" + j);    
+              console.log('들어옴')
+
+              if(board[i][j] == 0){
+                console.log('0일떄건너뛰어')
+
+                if((board[boxLength - 1][kakaoDoll] == 0)){
+                  console.log(board[boxLength - 1][kakaoDoll])
+
+                  console.log(i)
+                  kakaoDollBox.push(board[i][j])
+                 console.log(kakaoDollBox)
+                 moveIdx.splice(0,1)
+                 board[i][j] = 0;
+                
+                i=-1;
+                j=-1;
+                }
+    
+                break;
+              }else {
+                console.log('푸쉬합시다 엘스로들어옴')
+                console.log("i" + i);
+                console.log("j" + j);
+                console.log(board[i][j] )
+                kakaoDollBox.push(board[i][j])
+                console.log(kakaoDollBox)
+                moveIdx.splice(0,1)
+                board[i][j] = 0;
+                
+                i=-1;
+                j=-1;
+                console.log('초기화합니다 찾았으니까요!!!!!!!!!!!!!!!!!!!!!!')
+    
+                break;
+              }
+
+ // 4 3 1 1 3 2 0 4
+            }
+          }
+
+          if (moveIdx.length == 0) {
+            break;
+          }
+
+        }
+
+        console.log("함수밖");
+        console.log(kakaoDollBox);
+      }
+
+      console.log(solution(board, move));
+    </script>
+  </body>
+</html>
