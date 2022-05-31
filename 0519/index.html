@@ -34,8 +34,7 @@
       // 0 4 2 4 0 1 0 3 : 인덱스
       const move = [1, 5, 3, 5, 1, 2, 1, 4];
       function solution(board, move) {
-        const boxLength = board[0].length; //몰라 일단..
-     //인형 자리 .. 계속 없애줄거임.
+        const boxLength = board[0].length;
         const kakaoDollBox = [];
         const tempArr = []
     
@@ -47,52 +46,37 @@
 
 
         for (let i = 0; i < boxLength; i++) {
-          // console.log(board[i]);//인형뽑기 윗줄부터 하나하나
+
           const kakaoDoll = moveIdx[0];
   
           for (let j = 0; j < boxLength; j++) {
-            // console.log(board[i][j])
+
             if(board[i][j] == board[i][kakaoDoll]){
-              // console.log(board[i][j])
-              // console.log(moveIdx[0])
-       
-              // console.log('kakaoDoll: '+kakaoDoll +': 얘가j여야해')
-              // console.log("i" + i);
-              // console.log("j" + j);    
-              // console.log('들어옴')
-
+              
               if(board[i][j] == 0){
-                // console.log('0일떄건너뛰어')
-
                 if((board[boxLength - 1][kakaoDoll] == 0)){
-                  console.log(board[boxLength - 1][kakaoDoll])
-
-                  // console.log(i)
                   kakaoDollBox.push(board[i][j])
-             
-                //  console.log(kakaoDollBox)
                  moveIdx.splice(0,1)
                  board[i][j] = 0;
-                
                 i=-1;
                 j=-1;
+
+
+
+                break;
                 }
     
                 break;
               }else {
-                // console.log('푸쉬합시다 엘스로들어옴')
-                // console.log("i" + i);
-                // console.log("j" + j);
-                // console.log(board[i][j] )
+      
                 kakaoDollBox.push(board[i][j])
                 if(tempArr[tempArr.length - 1] == board[i][j]){
-                  tempArr.splice(tempArr.length - 1,1)
+                  tempArr.pop();
 
                 }else{
 
                   tempArr.push(board[i][j])
                 }
-                // console.log(kakaoDollBox)
                 moveIdx.splice(0,1)
                 board[i][j] = 0;
                 
@@ -114,8 +98,6 @@
         }
 
 
-    console.log(kakaoDollBox)
-    console.log(tempArr)
     newArr = kakaoDollBox.filter((el)=> el != 0)
 
   return newArr.length - tempArr.length;

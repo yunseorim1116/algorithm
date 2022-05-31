@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const s = "one4seveneight";
+
+      function solution(s) {
+        const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let word = "";
+        const apl = [
+          "zero",
+          "one",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six",
+          "seven",
+          "eight",
+          "nine",
+        ];
+        let answer = "";
+        const result = [];
+
+        Array.from(s).forEach((ele) => {
+          if (isNaN(ele)) {
+            word += ele;
+            if (apl.includes(word)) {
+              result.push(word);
+              word = "";
+            }
+          } else {
+            result.push(Number(ele));
+          }
+        });
+
+        console.log(result);
+
+        for (let i = 0; i < result.length; i++) {
+          if (isNaN(result[i])) {
+            // apl.indexOf(result[i])
+            answer += String(number[apl.indexOf(result[i])]);
+          } else {
+            answer += String(result[i]);
+          }
+        }
+
+        return Number(answer);
+      }
+
+      console.log(solution(s));
+    </script>
+  </body>
+</html>
